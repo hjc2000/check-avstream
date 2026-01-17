@@ -37,10 +37,12 @@ int main(int argc, char **argv)
 
 		// 命令行解析完成，开始处理
 		std::shared_ptr<video::InputFormat> input_format{new video::InputFormat{input_url}};
+
 		if (option_video->count())
 		{
 			// 使用了 --video 选项
 			video::AVStreamWrapper stream = input_format->FindBestStream(AVMediaType::AVMEDIA_TYPE_VIDEO);
+
 			if (!stream)
 			{
 				return -1;
@@ -53,6 +55,7 @@ int main(int argc, char **argv)
 		{
 			// 使用了 --audio 选项
 			video::AVStreamWrapper stream = input_format->FindBestStream(AVMediaType::AVMEDIA_TYPE_AUDIO);
+
 			if (!stream)
 			{
 				return -1;
