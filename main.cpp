@@ -1,6 +1,6 @@
-﻿#include <CLI/CLI.hpp>
-#include <ffmpeg-wrapper/mux/AVMixer.h>
-#include <ffmpeg-wrapper/output-format/FileOutputFormat.h>
+﻿#include "CLI/CLI.hpp"
+#include "ffmpeg-wrapper/mux/AVMixer.h"
+#include "ffmpeg-wrapper/output-format/FileOutputFormat.h"
 
 int main(int argc, char **argv)
 {
@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 		std::string input_url;
 
 		CLI::App app{"检查输入格式是否有音频流和视频流。可以选择检查视频流或检查音频流。但不能同时选择检查。"};
+
 		CLI::Option *option_video = app.add_flag("--video",
 												 "检查是否有视频流。");
 
