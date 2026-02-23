@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 			// 使用了 --video 选项
 			video::AVStreamWrapper stream = input_format->FindBestStream(AVMediaType::AVMEDIA_TYPE_VIDEO);
 
-			if (!stream)
+			if (stream.WrappedObj() == nullptr)
 			{
 				return -1;
 			}
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 			// 使用了 --audio 选项
 			video::AVStreamWrapper stream = input_format->FindBestStream(AVMediaType::AVMEDIA_TYPE_AUDIO);
 
-			if (!stream)
+			if (stream.WrappedObj() == nullptr)
 			{
 				return -1;
 			}
